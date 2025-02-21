@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Item</title>
+</head>
+<body>
+<a th:href="@{list}">&larr; return to the list of items</a>
+    <h1> New Item</h1>
+<div th:if="${errors}">
+    <h2>Has errors</h2>
+    <ul>
+        <li th:each="error: ${errors}"><span th:text="${error}"></span></li>
+    </ul>
+</div>
+    <form method="post" th:action="@{create}">
+        <label>
+            Title:<br>
+            <input type="text" name="title" th:value="${productDto?.title}">
+        </label><br>
+        <label>
+            Details:<br>
+            <textarea name="details" th:text="${productDto?.details}"></textarea>
+        </label><br>
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of items!!!</title>
+</head>
+<body>
+<a th:href="@{create}">&larr; return to the create of new item </a>
+    <h1> List of items</h1>
+    <form method="get" th:action="@{list}">
+        <label>Filter<input type="text" name="filter" th:value="${filter}"><button>Search</button></label>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product: ${products}">
+                <td th:text="${product.id}"></td>
+                <td><a th:href="@{${product.id}}" th:text="${product.title}"></a></td>
+                <td th:text="${product.details}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="|${product.title} товар добавлен|"></title>
+</head>
+<body>
+<a th:href="@{create}">&larr; return to the create of new item </a>
+    <h1> New item</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.title}"></td>
+                <td th:text="${product.details}"></td>
+            </tr>
+        </tbody>
+    </table>
+<a th:href="@{/api/v1/catalogue/products/list}">&rarr; return to the list of items </a>
+<br>
+<a th:href="@{'/api/v1/catalogue/products/'+${product.id}+'/edit'}">&rarr; go to the update </a>
+<form method="post" th:action="@{'/api/v1/catalogue/products/'+${product.id}+'/delete'}">
+    <button type="submit">delete</button>
+</form>
+</body>
+</html>
