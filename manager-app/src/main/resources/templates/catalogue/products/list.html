@@ -5,9 +5,9 @@
     <title>List of items!!!</title>
 </head>
 <body>
-<a th:href="@{create}">&larr; return to the create of new item </a>
+<a th:href="@{/api/v1/catalogue/products/create}">&larr; return to the create of new item </a>
     <h1> List of items</h1>
-    <form method="get" th:action="@{list}">
+    <form method="get" th:action="@{/api/v1/catalogue/products/list}">
         <label>Filter<input type="text" name="filter" th:value="${filter}"><button>Search</button></label>
     </form>
     <table>
