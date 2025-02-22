@@ -1,7 +1,6 @@
-package Pegas.services;
+package Pegas.service;
 
 import Pegas.entity.Product;
-import Pegas.mapper.NewProduct;
 
 import java.util.List;
 import java.util.Map;

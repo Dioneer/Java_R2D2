@@ -1,4 +1,4 @@
-package Pegas.services;
+package Pegas.service;
 
 import Pegas.entity.Product;
 import Pegas.repository.ProductRepository;

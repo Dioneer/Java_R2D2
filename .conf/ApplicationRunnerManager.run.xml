@@ -1,5 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="ApplicationRunnerManager" type="Application" factoryName="Application" nameIsGenerated="true">
+    <envs>
+      <env name="spring.profiles.active" value="standalone" />
+    </envs>
     <option name="MAIN_CLASS_NAME" value="Pegas.ApplicationRunnerManager" />
     <module name="manager-app" />
     <extension name="coverage">
