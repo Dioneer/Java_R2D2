@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface ProductsRestClient {
 
-    List<Product> findAllProducts();
+    List<Product> findAllProducts(String filter);
     Product createProduct(String title, String details);
     Optional<Product> findProduct(int productId);
     ResponseEntity<Void> updateProduct(int productId, String title, String details);

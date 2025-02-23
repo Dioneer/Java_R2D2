@@ -23,8 +23,8 @@ public class ProductsRestController {
     private final ProductService productService;
 
     @GetMapping
-    public List<Product> findProducts(){
-        return StreamSupport.stream(productService.findAllProducts().spliterator(), false).toList();
+    public List<Product> findProducts(@RequestParam(name = "filter", required = false) String filter){
+        return StreamSupport.stream(productService.findAllProducts(filter).spliterator(), false).toList();
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
