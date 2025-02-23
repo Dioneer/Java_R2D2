@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16
+    restart: always
+    container_name: java_R2D2_store
+    volumes:
+    - ./catalog-service/src/main/resources/db/migration/V25_1_1__Basic_schema.sql:/docker-entrypoint-initdb.d/data.sql
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5433:5432
+
+  postgres2:
+    image: postgres:16
+    restart: always
+    container_name: java_R2D2_user
+    #    volumes:
+    #      - ./catalog-service/src/main/resources/db/migration/V25_1_1__Basic_schema.sql:/docker-entrypoint-initdb.d/data.sql
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5434:5432

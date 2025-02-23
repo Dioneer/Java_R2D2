@@ -1,16 +1,13 @@
 package Pegas.repository;
 
 import Pegas.entity.Product;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface ProductRepository {
-    List<Product> findAll();
+public interface ProductRepository extends CrudRepository<Product, Integer> {
 
-    Product save(Product product);
+    Iterable<Product> findAllByTitleLikeIgnoreCase(String filter);
 
-    Optional<Product> findById(int productId);
-
-    void deleteById(Integer id);
 }

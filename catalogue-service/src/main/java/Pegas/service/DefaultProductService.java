@@ -4,8 +4,8 @@ import Pegas.entity.Product;
 import Pegas.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -15,8 +15,12 @@ public class DefaultProductService implements ProductService{
     private final ProductRepository productRepository;
 
     @Override
-    public List<Product> findAllProducts() {
-        return productRepository.findAll();
+    public Iterable<Product> findAllProducts(String filter) {
+        if(filter != null && !filter.isBlank()) {
+            return productRepository.findAllByTitleLikeIgnoreCase(filter);
+        }else{
+            return productRepository.findAll();
+        }
     }
 
     @Override
@@ -30,6 +34,7 @@ public class DefaultProductService implements ProductService{
     }
 
     @Override
+    @Transactional
     public void updateProduct(Integer id, String title, String details) {
         productRepository.findById(id).ifPresentOrElse(i-> {
             i.setTitle(title); i.setDetails(details);

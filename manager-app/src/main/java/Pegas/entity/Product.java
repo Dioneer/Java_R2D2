@@ -1,4 +1,4 @@
 package Pegas.entity;
 
-public record Product(int id, String title, String description) {
+public record Product(int id, String title, String details) {
 }
