@@ -4,3 +4,5 @@ webShop:
   services:
     catalogue:
       uri: "http://localhost:8080/api/v1"
+      username: "catalogue"
+      password: "password"
